@@ -1,0 +1,9 @@
+What is Emmet?
+
+Emmet is a free, open-source plugin that helps web developers create repetitive structures like tables, lists, or ordered elements with minimal typing. It's built into many text editors like Visual Studio Code (VS Code), and is enabled by default in the following files:
+HTML, Haml, Pug, Slim, JSX, XML, XSL, CSS, SCSS, SASS, Less, and Stylus.
+
+Difference between a Library and Framework?
+
+A framework is a pre-built structure that provides a foundation on which you can build your application. It typically dictates the architecture of your application and provides a set of rules, guidelines, and functionalities to streamline the development process. Frameworks are more comprehensive and prescriptive compared to libraries.
+A library, on the other hand, is a collection of reusable code that provides specific functionalities that you can use in your application. Unlike frameworks, libraries do not dictate the overall structure of your application and are usually more flexible in how they can be used.
