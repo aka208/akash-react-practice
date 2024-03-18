@@ -91,30 +91,30 @@ Here's an example of a .gitignore file for a Node.js project:
 bash
 Copy code
 
-# Ignore node_modules directory
+## Ignore node_modules directory
 
 node_modules/
 
-# Ignore dependency lock files
+## Ignore dependency lock files
 
 package-lock.json
 yarn.lock
 
-# Ignore compiled files
+## Ignore compiled files
 
 dist/
 build/
 
-# Ignore environment-specific files
+## Ignore environment-specific files
 
 .env
 
-# Ignore logs and temporary files
+## Ignore logs and temporary files
 
 _.log
 _.tmp
 
-# Ignore editor or IDE-specific files
+## Ignore editor or IDE-specific files
 
 .vscode/
 .idea/
@@ -187,7 +187,7 @@ The dist folder is typically not included in version control (e.g., Git) and is 
 
 Here's an example of a .browserslistrc file:
 
-# Browsers that we support
+## Browsers that we support
 
 `last 2 versions`
 
