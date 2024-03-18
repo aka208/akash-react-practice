@@ -1,12 +1,12 @@
-# What is `NPM`?
+## What is `NPM`?
 
 - Node package manager (npm) is a package manager and a software register but it's also a place where developers can find, build and manage code packages.
 
-# What is `Parcel/Webpack`? Why do we need it?
+## What is `Parcel/Webpack`? Why do we need it?
 
 - Parcel and Webpack are popular bundlers that help developers manage complex projects by combining dependencies into a single, optimized file. Both tools reduce the time it takes to transfer data and files to the server from the application.
 
-# What is `.parcel-cache`?
+## What is `.parcel-cache`?
 
 - .parcel-cache is a directory created by the Parcel bundler to store cached data related to the project being built. Parcel uses this cache to speed up subsequent builds by reusing previously processed files and dependencies.
 
@@ -14,7 +14,7 @@ The .parcel-cache directory typically contains cached versions of processed file
 
 Overall, the .parcel-cache directory helps improve the performance of Parcel by avoiding redundant processing of files and dependencies, especially in large projects with complex build configurations.
 
-# What is `npx` ?
+## What is `npx` ?
 
 - npx is a command-line tool that comes with npm (Node Package Manager) version 5.2.0 and higher. It is used to execute Node.js packages without having to install them globally. The npx command installs the package (if not already installed) in a temporary directory and then runs the executable, after which the installed package is removed.
 
@@ -26,7 +26,7 @@ This command will download the latest version of create-react-app, use it to sca
 
 Using npx in this way is useful for running packages that you only need to use once or infrequently, as it avoids cluttering your global npm packages with dependencies that are only used occasionally.
 
-# What is difference between `dependencies` vs `devDependencies`?
+## What is difference between `dependencies` vs `devDependencies`?
 
 - dependencies and devDependencies are both types of dependencies in a Node.js project managed by npm (Node Package Manager) or Yarn. They serve different purposes and are used in different contexts:
 
@@ -42,7 +42,7 @@ These packages are not necessary for the application to run in production and ar
 DevDependencies are not installed when someone installs the project for production (npm install --production or yarn install --production), which helps keep the production build leaner.
 In summary, dependencies are packages required for the application to run, while devDependencies are packages used for development and testing purposes. Separating them allows for better management of the project's dependencies and ensures that only necessary packages are included in the production build.
 
-# What is Tree Shaking?
+## What is Tree Shaking?
 
 - Tree shaking is a term commonly used in the context of JavaScript module bundlers, such as webpack or Rollup. It refers to the process of eliminating dead code (i.e., code that is not used or referenced anywhere in the application) from the final bundle.
 
@@ -52,7 +52,7 @@ Tree shaking is particularly useful for optimizing the size of your JavaScript b
 
 To take advantage of tree shaking, it's important to use ES modules (import and export statements) and ensure that the modules you are using are designed to be tree-shakable, meaning they export specific parts of their code that can be individually imported.
 
-# What is Hot Module Replacement?
+## What is Hot Module Replacement?
 
 - Hot Module Replacement (HMR) is a feature in webpack, a popular module bundler for JavaScript applications, that allows developers to update modules in a running application without a full page reload. This means that you can see changes to your code reflected in the browser almost instantly, without losing the current state of your application.
 
@@ -68,7 +68,7 @@ Fast Updates: HMR updates are typically much faster than a full page reload, mak
 
 Hot Module Replacement is particularly useful during development, as it allows developers to see the effects of their code changes immediately, without the need to manually refresh the page. This can lead to a more productive and enjoyable development experience.
 
-# What is `.gitignore`? What should we add and not add into it?
+## What is `.gitignore`? What should we add and not add into it?
 
 - .gitignore is a file used by Git to specify which files and directories should be ignored and not tracked by version control. When you add a file or directory to .gitignore, Git will ignore it and not include it in commits or consider it when checking for changes.
 
@@ -91,37 +91,37 @@ Here's an example of a .gitignore file for a Node.js project:
 bash
 Copy code
 
-## Ignore node_modules directory
+### Ignore node_modules directory
 
 node_modules/
 
-## Ignore dependency lock files
+### Ignore dependency lock files
 
 package-lock.json
 yarn.lock
 
-## Ignore compiled files
+### Ignore compiled files
 
 dist/
 build/
 
-## Ignore environment-specific files
+### Ignore environment-specific files
 
 .env
 
-## Ignore logs and temporary files
+### Ignore logs and temporary files
 
 _.log
 _.tmp
 
-## Ignore editor or IDE-specific files
+### Ignore editor or IDE-specific files
 
 .vscode/
 .idea/
 .DS_Store
 It's important to add only files and directories that are specific to your project or development environment to .gitignore. Avoid adding generic rules that could ignore important files or directories needed for the project to function correctly.
 
-# What is the difference between `package.json` and `package-lock.json`?
+## What is the difference between `package.json` and `package-lock.json`?
 
 - package.json and package-lock.json are both files used in Node.js projects to manage dependencies, but they serve different purposes and are used in different ways.
 
@@ -139,7 +139,7 @@ The package-lock.json file is automatically generated and updated by npm wheneve
 Developers typically do not manually edit package-lock.json, as it is meant to be managed by npm.
 In summary, package.json is a file used to define the project metadata and dependencies, while package-lock.json is a file generated by npm to lock down the versions of dependencies installed in the project, ensuring consistency across different environments.
 
-# Why should I not modify `package-lock.json`?
+## Why should I not modify `package-lock.json`?
 
 - Dependency consistency: package-lock.json is intended to ensure that the exact same versions of dependencies are installed across different environments. Modifying it manually can lead to inconsistencies in dependency versions, which can cause issues when the project is built or deployed in different environments.
 
@@ -151,7 +151,7 @@ Dependency resolution: package-lock.json includes information about the resolved
 
 Overall, it's best to let npm manage package-lock.json automatically to ensure that your project's dependencies are consistent and correctly resolved across different environments.
 
-# What is `node_modules` ? Is it a good idea to push that on git?
+## What is `node_modules` ? Is it a good idea to push that on git?
 
 - node_modules is a directory that contains all the dependencies of a Node.js project. When you run npm install or yarn install, the package manager downloads and installs the dependencies listed in the package.json file into the node_modules directory.
 
@@ -165,7 +165,7 @@ Version control: The purpose of version control is to track changes to your code
 
 To avoid pushing node_modules to git, you can add it to your .gitignore file. This will prevent it from being included in git commits. Instead, other developers can run npm install or yarn install to install the dependencies specified in package.json on their own machines.
 
-# What is dist folder?
+## What is dist folder?
 
 - The dist folder (short for "distribution") is a common convention used in software development to store files that are ready for deployment. It typically contains compiled or transpiled code, minified files, and other assets that are optimized for production use.
 
@@ -181,13 +181,13 @@ Static assets: Images, fonts, and other static assets that are used by the appli
 
 The dist folder is typically not included in version control (e.g., Git) and is generated as part of the build process. Developers can use tools like webpack, Babel, or other build tools to compile, bundle, and optimize their code, generating the dist folder ready for deployment.
 
-# What is browserlist?
+## What is browserlist?
 
 - browserslist is a configuration file used by various front-end tools and libraries, such as autoprefixer, Babel, and eslint, to target specific browsers or browser versions for compatibility purposes. It allows developers to define a list of target browsers in a .browserslistrc file or in the browserslist field of their package.json file.
 
 Here's an example of a .browserslistrc file:
 
-## Browsers that we support
+### Browsers that we support
 
 `last 2 versions`
 
