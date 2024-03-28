@@ -1,10 +1,10 @@
 import ReastaurantCard from "./ReastaurantCard";
-import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   //Local State Variable - Super powerful variable
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
 
   // called after our component renders or render cycle completes
   useEffect(() => {
@@ -17,15 +17,20 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5967587&lng=73.896851&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
+    //Optional Chaining
     setListOfRestaurants(
-      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
-    );
-    console.log(
-      json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+      json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
-  return (
+  // Conditional Rendering
+  if (listOfRestaurants.length === 0) {
+    return <Shimmer />;
+  }
+
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <button
