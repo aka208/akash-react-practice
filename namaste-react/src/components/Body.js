@@ -1,6 +1,7 @@
 import ReastaurantCard from "./ReastaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   //Local State Variable - Super powerful variable
@@ -25,10 +26,13 @@ const Body = () => {
     const json = await data.json();
     //Optional Chaining
     setListOfRestaurants(
-      json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    console.log(
+      json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurants(
-      json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -39,7 +43,7 @@ const Body = () => {
 
   // setListOfRestaurants(listOfRestaurants);
 
-  return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -86,7 +90,12 @@ const Body = () => {
         {filteredRestaurants.map((restaurant) => (
           // if dont have key then use index as key
           // not using keys is not accptable <<<<<<< using index keys <<<<<<< using unique id as keys
-          <ReastaurantCard key={restaurant.info.id} resData={restaurant.info} />
+          <Link
+            key={restaurant.info.id}
+            to={"/restaurants/" + restaurant.info.id}
+          >
+            <ReastaurantCard resData={restaurant.info} />
+          </Link>
         ))}
         {/* <ReastaurantCard resName="KFC" cuisine="Burger, Fast Food" /> */}
       </div>
