@@ -1,4 +1,5 @@
 // import User from "./User";
+import User from "./User";
 import UserClass from "./UserClass";
 import React from "react";
 
@@ -22,6 +23,7 @@ class About extends React.Component {
           location={"Pune"}
           email="akashbtw@gmail.com"
         />
+        <User />
       </div>
     );
   }
