@@ -1,14 +1,14 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const resInfo = useRestaurantMenu(resId);
-  console.log(resInfo);
+
   if (resInfo === null) return <Shimmer />;
-  console.log(resInfo);
 
   const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[2]?.card?.card?.info;
