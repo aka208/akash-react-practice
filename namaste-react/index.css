@@ -1,4 +1,7 @@
-.header {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* .header {
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
@@ -43,7 +46,6 @@
 }
 .shimmer-container {
   display: flex;
-  /* justify-content: space-between; */
   flex-wrap: wrap;
 }
 .shimmer-card {
@@ -62,4 +64,4 @@
 .user-card {
   padding: 10px;
   border: 1px solid lightgrey;
-}
+} */
