@@ -9,10 +9,7 @@ const ReastaurantCard = (props) => {
   const { name, cuisines, avgRating, costForTwo, sla, cloudinaryImageId } =
     resData;
   return (
-    <div
-      className="m-4 p-4 w-[250px] min-h-[500px] rounded-lg"
-      style={styleCard}
-    >
+    <div className="m-4 p-4 w-[250px] min-h-[500px] rounded-lg bg-slate-200 hover:bg-slate-300">
       <img
         className="rounded-lg"
         alt="food image"

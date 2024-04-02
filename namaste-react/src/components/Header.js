@@ -12,7 +12,7 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="flex justify-between shadow-lg">
+    <div className="flex justify-between bg-red-500 shadow-lg sm:bg-yellow-500 lg:bg-green-300">
       <div className="logo-container">
         <img className="w-56" alt="Namaste Food App Logo" src={LOGO_URL} />
       </div>
