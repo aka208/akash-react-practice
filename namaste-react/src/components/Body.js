@@ -1,4 +1,7 @@
-import ReastaurantCard, { WithPromotedLabel } from "./ReastaurantCard";
+import ReastaurantCard, {
+  WithPromotedLabel,
+  WithNotRecommendedLabel,
+} from "./ReastaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -11,6 +14,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   const RestaurantCardPromoted = WithPromotedLabel(ReastaurantCard);
+  const RestaurantCardNotPromoted = WithNotRecommendedLabel(ReastaurantCard);
 
   console.log("Body Rendered");
 
@@ -108,10 +112,12 @@ const Body = () => {
             to={"/restaurants/" + restaurant.info.id}
           >
             {/* // if a restaurant rating is more than 3 make it promoted */}
-            {restaurant.info.avgRating > 3 ? (
+            {restaurant.info.avgRating > 4 ? (
               <RestaurantCardPromoted resData={restaurant.info} />
             ) : (
-              <ReastaurantCard resData={restaurant.info} />
+              <RestaurantCardNotPromoted
+                resData={restaurant.info}
+              ></RestaurantCardNotPromoted>
             )}
           </Link>
         ))}

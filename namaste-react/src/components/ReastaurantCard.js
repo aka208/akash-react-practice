@@ -32,8 +32,21 @@ export const WithPromotedLabel = (RestaurantCard) => {
   return (props) => {
     return (
       <div>
-        <label className="absolute bg-black text-yellow-50 m-2 p-2 rounded-lg">
+        <label className="absolute bg-black text-yellow-50 font-sans font-semibold shadow-xl m-2 p-2 rounded-lg">
           Promoted
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+
+export const WithNotRecommendedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute m-2 p-2 text-yellow-50 font-sans font-semibold bg-red-600 shadow-xl rounded-lg">
+          Not Recommended
         </label>
         <RestaurantCard {...props} />
       </div>
