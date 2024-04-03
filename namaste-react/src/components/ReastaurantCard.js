@@ -45,7 +45,7 @@ export const WithNotRecommendedLabel = (RestaurantCard) => {
   return (props) => {
     return (
       <div>
-        <label className="absolute m-2 p-2 text-yellow-50 font-sans font-semibold bg-red-600 shadow-xl rounded-lg">
+        <label className="absolute m-2 p-2 text-yellow-50 font-sans font-semibold bg-red-500 shadow-xl rounded-lg">
           Not Recommended
         </label>
         <RestaurantCard {...props} />
