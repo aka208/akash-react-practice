@@ -1,4 +1,4 @@
-import ReastaurantCard from "./ReastaurantCard";
+import ReastaurantCard, { WithPromotedLabel } from "./ReastaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -10,7 +10,11 @@ const Body = () => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+  const RestaurantCardPromoted = WithPromotedLabel(ReastaurantCard);
+
   console.log("Body Rendered");
+
+  console.log("List of Restaurants ", listOfRestaurants);
 
   // called after our component renders or render cycle completes
   // If no dependency array then useEffect is called on every render
@@ -103,7 +107,12 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            <ReastaurantCard resData={restaurant.info} />
+            {/* // if a restaurant rating is more than 3 make it promoted */}
+            {restaurant.info.avgRating > 3 ? (
+              <RestaurantCardPromoted resData={restaurant.info} />
+            ) : (
+              <ReastaurantCard resData={restaurant.info} />
+            )}
           </Link>
         ))}
         {/* <ReastaurantCard resName="KFC" cuisine="Burger, Fast Food" /> */}

@@ -64,3 +64,7 @@ If state variable changes React re-renders the component
 
 - Client side routing
 - Server side routing
+
+# Higher Order Component
+
+- Takes a Component and returns a Component
