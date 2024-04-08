@@ -16,10 +16,6 @@ const Body = () => {
   const RestaurantCardPromoted = WithPromotedLabel(ReastaurantCard);
   const RestaurantCardNotPromoted = WithNotRecommendedLabel(ReastaurantCard);
 
-  console.log("Body Rendered");
-
-  console.log("List of Restaurants ", listOfRestaurants);
-
   // called after our component renders or render cycle completes
   // If no dependency array then useEffect is called on every render
   // If dependency array is empty then useEffect is called on initial render only and just once
