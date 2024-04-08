@@ -2,10 +2,11 @@ import ReastaurantCard, {
   WithPromotedLabel,
   WithNotRecommendedLabel,
 } from "./ReastaurantCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   //Local State Variable - Super powerful variable
@@ -23,6 +24,8 @@ const Body = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   const fetchData = async () => {
     const data = await fetch(
@@ -83,7 +86,7 @@ const Body = () => {
             Search
           </button>
         </div>
-        <div className="search m-4 p-4">
+        <div className="search m-4 p-4 flex items-center">
           <button
             className="px-4 py-2 bg-gray-100 m-4 rounded-lg"
             onClick={() => {
@@ -97,6 +100,16 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+        </div>
+        <div className="search m-4 p-4 flex items-center">
+          <label>User Name: </label>
+          <input
+            type="text"
+            value={loggedInUser}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
         </div>
       </div>
       <div className="flex flex-wrap">
