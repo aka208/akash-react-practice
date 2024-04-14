@@ -6,6 +6,7 @@ const cartSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       // Mutating the state over here
+      // redux-toolkit uses immer behind the scenes to mutate this state
       state.items.push(action.payload);
     },
     removeItem: (state, action) => {
