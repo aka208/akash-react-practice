@@ -68,3 +68,14 @@ If state variable changes React re-renders the component
 # Higher Order Component
 
 - Takes a Component and returns a Component
+
+# Redux/Redux-Toolkit
+
+![alt text](image.png)
+
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- Connect our store to our app
+- Slice (CartSlice)
+- dispatch (action)
+- Selector

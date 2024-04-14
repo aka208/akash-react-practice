@@ -3,10 +3,6 @@ import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
 import UserContext from "../utils/UserContext";
 
-const styleCard = {
-  backgroundColor: "#f0f0f0",
-};
-
 const ReastaurantCard = (props) => {
   const { resData } = props;
   const { loggedInUser } = useContext(UserContext);

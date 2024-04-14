@@ -1,7 +1,6 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
-import useOnlineStatus from "../utils/useOnlineStatus";
 import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
 
@@ -19,12 +18,6 @@ const RestaurantMenu = () => {
   const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[2]?.card?.card?.info;
 
-  const { itemCards } =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-  console.log(
-    "TEST ",
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-  );
   const categories =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>

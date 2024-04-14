@@ -9,12 +9,15 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 // import Grocerry from "./components/Grocerry";
 
 // Chunking or Code Splitting or Dynamic Bundling or Lazy Loading or On Demand Loading
 const Grocerry = lazy(() => import("./components/Grocerry"));
 
 const About = lazy(() => import("./components/About"));
+const Cart = lazy(() => import("./components/Cart"));
 
 const AppLayout = () => {
   const [userName, setUserName] = useState();
@@ -34,13 +37,14 @@ const AppLayout = () => {
     //   </UserContext.Provider>
     //   <Outlet />
     // </div>
-
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <div className="app">
-        <Header />
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -60,6 +64,7 @@ const appRouter = createBrowserRouter([
         ),
       },
       { path: "/contact", element: <Contact /> },
+      { path: "/cart", element: <Cart /> },
       {
         path: "/Grocerry",
         element: (
