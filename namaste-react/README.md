@@ -85,3 +85,11 @@ If state variable changes React re-renders the component
 - Unit Testing
 - Integration Testing
 - End to End Testing
+
+# Setting up testing in our app
+
+- Install React Testing Library
+- Installed Jest
+- Installed Babel dependencies
+- Configure Babel
+- Configure parcel config file to disable default Babel transpilation
