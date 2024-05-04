@@ -79,3 +79,9 @@ If state variable changes React re-renders the component
 - Slice (CartSlice)
 - dispatch (action)
 - Selector
+
+# Tpes of testing
+
+- Unit Testing
+- Integration Testing
+- End to End Testing
