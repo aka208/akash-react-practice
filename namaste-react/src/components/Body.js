@@ -23,6 +23,7 @@ const Body = () => {
   // If dependency array has a item then useEffect is called every time item gets updated
   useEffect(() => {
     fetchData();
+    // fetchUpdatedData();
   }, []);
 
   const { loggedInUser, setUserName } = useContext(UserContext);
@@ -42,6 +43,44 @@ const Body = () => {
     setFilteredRestaurants(
       json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+  };
+
+  const fetchUpdatedData = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/update",
+      {
+        method: "post",
+        headers: {
+          Cookie:
+            "__SW=Bq-uXk6WbbGOa5WZU75nxorEJrWLU0K1; _device_id=c5379888-9e48-f04b-818e-23aa19bb2543; fontsLoaded=1; _gcl_au=1.1.842079248.1710957904; _ga_4BQKMMC7Y9=GS1.2.1711777522.3.1.1711782176.47.0.0; _guest_tid=65af1e05-fcc8-400a-9505-3e11569ace8f; _sid=d9wda021-c19d-4eca-929f-67425413c6a9; userLocation={%22lat%22:18.6405385%2C%22lng%22:73.90364869999999%2C%22address%22:%22PathareMala%2C%20Charholi%20Budruk%2C%20Maharashtra%20412105%2C%20India%22%2C%22area%22:%22%22%2C%22showUserDefaultAddressHint%22:false}; _gid=GA1.2.1972800345.1713105310; _ga_34JYJ0BCRN=GS1.1.1713105310.17.0.1713105310.0.0.0; _ga=GA1.1.484451253.1710957904",
+        },
+        body: {
+          lat: 18.6405385,
+          lng: 73.90364869999999,
+          nextOffset: "COVCELQ4KICIw+Kymoj7IDCnEzgE",
+          widgetOffset: {
+            NewListingView_category_bar_chicletranking_TwoRows: "",
+            NewListingView_category_bar_chicletranking_TwoRows_Rendition: "",
+            Restaurant_Group_WebView_PB_Theme: "",
+            Restaurant_Group_WebView_SEO_PB_Theme: "",
+            collectionV5RestaurantListWidget_SimRestoRelevance_food_seo: "25",
+            inlineFacetFilter: "",
+            restaurantCountWidget: "",
+          },
+          filters: {},
+          seoParams: {
+            seoUrl: "https://www.swiggy.com/",
+            pageType: "FOOD_HOMEPAGE",
+            apiName: "FoodHomePage",
+          },
+          page_type: "DESKTOP_WEB_LISTING",
+          _csrf: "zAS54DrdtTiQ-q7DCU-5v5ZFwyIuZ7vL_1WROcOw",
+        },
+      }
+    );
+    const json = await data.json;
+    // setListOfRestaurants([...listOfRestaurants, ...listOfRestaurants]);
+    console.log("UPDATED DATE", json);
   };
 
   const onlineStatus = useOnlineStatus();
