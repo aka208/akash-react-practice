@@ -93,3 +93,5 @@ If state variable changes React re-renders the component
 - Installed Babel dependencies
 - Configure Babel
 - Configure parcel config file to disable default Babel transpilation
+- Jest Configuration
+- Install jsdom library
