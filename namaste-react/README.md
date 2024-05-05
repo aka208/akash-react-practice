@@ -95,3 +95,6 @@ If state variable changes React re-renders the component
 - Configure parcel config file to disable default Babel transpilation
 - Jest Configuration
 - Install jsdom library
+- install @babel/preset-react to make jsx run in test cases
+- include @babel/preset-react inside babel config
+- Install @testing-library/jest-dom
