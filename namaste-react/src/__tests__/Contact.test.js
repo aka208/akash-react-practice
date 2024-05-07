@@ -3,6 +3,22 @@ import Contact from "../components/Contact";
 import "@testing-library/jest-dom";
 
 describe("Contact Us page test cases", () => {
+  beforeAll(() => {
+    console.log("Befre running all test cases!");
+  });
+
+  beforeEach(() => {
+    console.log("Befre running each test case!");
+  });
+
+  afterAll(() => {
+    console.log("After completing all test cases!");
+  });
+
+  afterEach(() => {
+    console.log("After completing each test case!");
+  });
+
   it("should load contact us component", () => {
     render(<Contact />);
 
