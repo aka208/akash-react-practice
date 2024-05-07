@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import Body from "../components/Body";
 import MOCK_DATA from "./mocks/mockResListData.json";
 import { act } from "react-dom/test-utils";
@@ -12,7 +12,7 @@ globalThis.fetch = jest.fn(() => {
     },
   });
 });
-it("shuld render Body component with Search ", async () => {
+it("shuld search Restaurant List for given input", async () => {
   await act(async () =>
     render(
       <BrowserRouter>
@@ -20,10 +20,16 @@ it("shuld render Body component with Search ", async () => {
       </BrowserRouter>
     )
   );
+  const cardsBeforeSearch = screen.getAllByTestId("resCard");
+  expect(cardsBeforeSearch.length).toBe(9);
   const searchBtn = screen.getByRole("button", { name: "Search" });
   const searchInput = screen.getByTestId("search-input");
 
-  expect(searchInput).toBeInTheDocument();
+  //   expect(searchInput).toBeInTheDocument();
+  fireEvent.change(searchInput, { target: { value: "momo" } });
+  fireEvent.click(searchBtn);
 
-  expect(searchBtn).toBeInTheDocument();
+  //   expect(searchBtn).toBeInTheDocument();
+  const cardsAfterSearch = screen.getAllByTestId("resCard");
+  expect(cardsAfterSearch.length).toBe(1);
 });
